@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 dotenv.config();
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
@@ -105,13 +107,6 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Backend running on http://localhost:5000");
-});
-
-import path from "path";
-import { fileURLToPath } from "url";
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -121,3 +116,11 @@ app.use(express.static(path.join(__dirname, "../build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
+
+app.listen(5000, () => {
+  console.log("Backend running on http://localhost:5000");
+});
+
+
+
+
