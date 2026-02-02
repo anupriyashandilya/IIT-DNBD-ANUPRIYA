@@ -110,5 +110,5 @@ node backend/index.js
 
 ### Visit:
 ```
-http://localhost:5000.
+http://localhost:5000
 ```
